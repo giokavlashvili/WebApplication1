@@ -1,7 +1,4 @@
 node{
-    stage("checkout"){
-        git branch:'master', url: 'https://github.com/giokavlashvili/WebApplication1.git'
-    }
     stage("build"){
         bat "dotnet build --configuration Release"
     }
