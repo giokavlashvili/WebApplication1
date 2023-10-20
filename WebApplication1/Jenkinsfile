@@ -1,0 +1,14 @@
+node{
+    stage("checkout"){
+        git branch:'master', url: 'https://github.com/giokavlashvili/WebApplication1.git'
+    }
+    stage("build"){
+        bat "dotnet build --configuration Release"
+    }
+    stage("publish"){
+        bat "dotnet publish --runtime osx.10.11-x64"
+    }
+    stage("capture"){
+        archiveArtifacts artifacts: '**/Release/net7.0/**'
+    }
+}
