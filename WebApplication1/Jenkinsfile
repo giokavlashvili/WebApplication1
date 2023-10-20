@@ -3,7 +3,7 @@ node{
         bat "dotnet build --configuration Release"
     }
     stage("publish"){
-        bat "dotnet publish --runtime osx.10.11-x64"
+        bat "dotnet publish -r win-x64 --self-contained"
     }
     stage("capture"){
         archiveArtifacts artifacts: '**/Release/net7.0/**'
