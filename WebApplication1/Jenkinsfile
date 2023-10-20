@@ -9,6 +9,6 @@ node{
         archiveArtifacts artifacts: '**/Release/net7.0/**'
     }
     stage("deploy"){
-        bat "Xcopy WebApplication1\bin\Release\net7.0\ c:\inetpub\wwwroot\TestWebApp /E /H /C /I /Y"
+        bat "Xcopy WebApplication1\\bin\\Release\\net7.0\\ c:\\inetpub\\wwwroot\\TestWebApp /E /H /C /I /Y"
     }
 }
