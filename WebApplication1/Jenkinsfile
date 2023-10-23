@@ -18,8 +18,6 @@ node{
         archiveArtifacts artifacts: '**/bin/Release/net7.0/**'
     }
     stage("deploy"){
-        bat 'net stop "w3svc"'
         bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:contentPath=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipe\\WebApplication1\\bin\\Release\\net7.0\\publish -dest:contentPath=C:\\inetpub\\wwwroot\\TestWebApp /p:Configuration=Release'
-        bat 'net start "w3svc"'
     }
 }
