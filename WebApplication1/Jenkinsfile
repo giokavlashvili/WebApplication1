@@ -9,6 +9,6 @@ node{
         archiveArtifacts artifacts: '**/Release/net7.0/**'
     }
     stage("deploy"){
-        bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:contentPath=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipe\\WebApplication1\\bin\\Release\\net7.0 -dest:contentPath=C:\\inetpub\\wwwroot\\TestWebApp'
+        bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:contentPath=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipe\\WebApplication1\\bin\\Release\\net7.0 -dest:contentPath=C:\\inetpub\\wwwroot\\TestWebApp -enableRule:DoNotDelete'
     }
 }
