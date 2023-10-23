@@ -18,6 +18,8 @@ node{
         archiveArtifacts artifacts: '**/bin/Release/net7.0/**'
     }
     stage("deploy"){
+        bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:recycleApp -dest:recycleApp="TestWebApp",recycleMode="StopAppPool"'
         bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:contentPath=C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\pipe\\WebApplication1\\bin\\Release\\net7.0\\publish -dest:contentPath=C:\\inetpub\\wwwroot\\TestWebApp'
+        bat '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:recycleApp -dest:recycleApp="TestWebApp",recycleMode="StartAppPool"'
     }
 }
