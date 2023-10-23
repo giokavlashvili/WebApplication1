@@ -1,4 +1,9 @@
 node{
+    stage('Checkout Stage') {
+        steps {
+            url: 'https://github.com/giokavlashvili/WebApplication1.git', branch: 'master'
+        }
+    }
     stage("clean"){
         bat "dotnet clean"
     }
