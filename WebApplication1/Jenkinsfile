@@ -1,4 +1,7 @@
 node{
+    stage("clean"){
+        bat "dotnet clean"
+    }
     stage("restore"){
         bat "dotnet restore"
     }
